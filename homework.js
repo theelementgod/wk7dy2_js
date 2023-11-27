@@ -19,20 +19,20 @@ let person3 = {
 
 function faveFood(person3) {
     for (let item in person3) {
-        if (Array.isArray(person3[item])) {
-            console.log(`${item}: ${person3[item].join(', ')}`);
-        } else if (typeof person3[item] === 'object') {
-            console.log(`${item}:`);
-            for (let value_item in person3[item][0]) {
-                console.log(`  ${value_item}: ${person3[item][0][valueofitem]}`);
+        if (Array.isArray(`${person3[item]}`)) {
+            console.log(`${item}: ${person3[item].join(', ')}`)
+            // https://www.w3schools.com/jsref/jsref_isarray.asp
+    }   else if (Array.isArray(`${person3[item].valueOf}`)) {
+            console.log(`${item}:`)
+            for (let arrItem in `${person3[item]}`) {
+                console.log(`${arrItem}: ${person3[item].valueOf}`)
             }
-        } else {
-            console.log(`${item}: ${person3[item]}`);
-        };
-    };
-};
-
-faveFood(person3);
+    }   else {
+            console.log(`${item}: ${person3[item]}`)
+        }
+    }
+}
+faveFood(person3)
 
 
 //======= Exercise #2=========//
@@ -55,9 +55,7 @@ class People{
     printInfo = () => `${this.name} is ${this.age} years old.`
     // Create another arrow function for the addAge method that takes a single parameter
 // Adding to the age 
-    addAge = () => {
-        this.age = this.age + 1;
-    };
+    addAge = () => this.age = this.age + 1;
 };
 
 const person1 = new People('Tony', 36)
