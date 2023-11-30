@@ -17,22 +17,42 @@ let person3 = {
     }]
 };
 
-function faveFood(person3) {
-    for (let item in person3) {
-        if (Array.isArray(`${person3[item]}`)) {
-            console.log(`${item}: ${person3[item].join(', ')}`)
-            // https://www.w3schools.com/jsref/jsref_isarray.asp
-    }   else if (Array.isArray(`${person3[item].valueOf}`)) {
-            console.log(`${item}:`)
-            for (let arrItem in `${person3[item]}`) {
-                console.log(`${arrItem}: ${person3[item].valueOf}`)
+function faveFood(person3){
+    for(let items in person3){
+        if(Array.isArray(person3[items])){
+            for(i=0; i<person3[items].length; i++){
+                if(typeof person3[items][i] === "object"){
+                    for(let shakes in person3[items][i]){
+                        console.log(`${items}: ${shakes}: ${person3[items][i][shakes]}`);
             }
-    }   else {
-            console.log(`${item}: ${person3[item]}`)
-        }
+                }else{console.log(`${items}: ${person3[items][i]}`)}
+    }
+        }else{
+            console.log(`${items}: ${person3[items]}`)
+     }
     }
 }
-faveFood(person3)
+faveFood(person3);
+
+
+
+
+
+//     for (let item in person3) {
+//         if (Array.isArray(`${person3[item]}`)) {
+//             console.log(`${item}: ${person3[item].join(', ')}`)
+//             // https://www.w3schools.com/jsref/jsref_isarray.asp
+//     }   else if (Array.isArray(`${person3[item].valueOf}`)) {
+//             console.log(`${item}:`)
+//             for (let arrItem in `${person3[item]}`) {
+//                 console.log(`${arrItem}: ${person3[item].valueOf}`)
+//             }
+//     }   else {
+//             console.log(`${item}: ${person3[item]}`)
+//         }
+//     }
+// }
+// faveFood(person3)
 
 
 //======= Exercise #2=========//
